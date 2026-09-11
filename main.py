@@ -24,7 +24,7 @@ HEADERS = {
 
 SOURCE_URL = "https://www.tgju.org/"
 CHANGE_sent = 1
-Iast_sent = {"dollar": Nome, "gold18": None}
+last_sent = {"dollar": Nome, "gold18": None}
 
 def to_number(price_str):
     try:
