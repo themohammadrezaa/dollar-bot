@@ -23,7 +23,8 @@ HEADERS = {
 }
 
 SOURCE_URL = "https://www.tgju.org/"
-CHANGE_THRESHOLD = 1
+DOLLAR_THRESHOLD = 1
+GOLD_THRESHOLD = 0.25 
 last_sent = {"dollar": None, "gold18": None}
 
 def to_number(price_str):
@@ -33,12 +34,12 @@ def to_number(price_str):
         return None
 
 
-def significant_change(old, new):
+def significant_change(old, new, threshold):
     if old is None or new is None:
         return True
     if old == 0:
         return True
-    return abs(new - old) / old * 100 >= CHANGE_THRESHOLD
+    return abs(new - old) / old * 100 >= threshold
 
 def get_prices():
     """
@@ -98,8 +99,8 @@ def channel_broadcaster():
             gold_num = to_number(prices["gold18"])
 
             changed = (
-                significant_change(last_sent["dollar"], dollar_num)
-                or significant_change(last_sent["gold18"], gold_num)
+                significant_change(last_sent["dollar"], dollar_num, DOLLAR_THRESHOLD)
+                or significant_change(last_sent["gold18"], gold_num, GOLD_THRESHOLD)
             )
 
             if changed:
