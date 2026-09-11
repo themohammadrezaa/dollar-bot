@@ -23,7 +23,7 @@ HEADERS = {
 }
 
 SOURCE_URL = "https://www.tgju.org/"
-CHANGE_sent = 1
+CHANGE_THRESHOLD = 1
 last_sent = {"dollar": None, "gold18": None}
 
 def to_number(price_str):
