@@ -1,11 +1,3 @@
-# -------------------------------------------------------------
-# ربات تلگرام قیمت دلار و طلا
-# این فایل سه کار می‌کنه:
-#   ۱) وقتی کسی به ربات دستور /price بده، قیمت لحظه‌ای رو جواب می‌ده
-#   ۲) هر ۱۰ دقیقه (قابل تنظیم) خودکار قیمت رو تو کانال می‌فرسته
-#   ۳) قیمت‌ها رو با وب‌اسکرپینگ از سایت tgju.org می‌گیره (نه API)
-# -------------------------------------------------------------
-
 import os
 import time
 import threading
@@ -18,10 +10,9 @@ import telebot
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("price-bot")
 
-# این متغیرها از تنظیمات Railway (Variables) خونده می‌شن، نه از تو کد
-BOT_TOKEN = os.environ["BOT_TOKEN"]            # توکنی که از BotFather گرفتی
-CHANNEL_ID = os.environ["CHANNEL_ID"]          # مثلا: @Bat_dollar یا -1001234567890
-INTERVAL_SECONDS = int(os.environ.get("INTERVAL_SECONDS", "600"))  # فاصله ارسال به کانال (ثانیه)، پیش‌فرض ۶۰۰ = ۱۰ دقیقه
+BOT_TOKEN = os.environ["BOT_TOKEN"]           
+CHANNEL_ID = os.environ["CHANNEL_ID"]          
+INTERVAL_SECONDS = int(os.environ.get("INTERVAL_SECONDS", "600"))  
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
