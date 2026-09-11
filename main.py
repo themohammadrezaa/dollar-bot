@@ -63,7 +63,7 @@ def get_prices():
 def format_message(prices):
     return (
         "💵 قیمت لحظه‌ای\n\n"
-        f"دلار: {prices['dollar']} تومان\n"
+        f"دلار: {prices['dollar']} ریال\n"
         f"طلای ۱۸ عیار: {prices['gold18']} تومان\n"
     )
 
